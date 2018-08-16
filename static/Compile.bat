@@ -1,0 +1,1 @@
+sencha compile -classpath=src,js -yui -in desktop.html -out index.html

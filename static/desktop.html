@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>ETCD Browser</title>
+
+	<link rel="stylesheet" type="text/css" href="resources/css/ext-all.css" />
+	<link rel="stylesheet" type="text/css" href="css/desktop.css" />
+
+	<!-- GC -->
+
+	<!-- <x-compile> -->
+	<!-- <x-bootstrap> -->
+	<script type="text/javascript" src="js/cookies.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="ext.js"></script>
+	<!--script type="text/javascript" src="app-all.js"></script-->
+	<!-- </x-bootstrap> -->
+	<script type="text/javascript">
+		ENV = {};
+		ENV['A'] = get_cookie('access_key');
+		ENV['U'] = get_cookie('access_uuid');
+
+		Ext.Loader.setPath({
+			'Ext.ux.desktop': 'js',
+			'Ext.ux': 'ux',
+			'MyDesktop': 'app',
+			'Plugins': 'plugins'
+		});
+
+		Ext.require('MyDesktop.App');
+
+		var myDesktopApp;
+		Ext.onReady(function () {
+			myDesktopApp = new MyDesktop.App();
+		});
+
+		if (window.innerWidth)
+			winWidth = window.innerWidth;
+		else if ((document.body) && (document.body.clientWidth))
+			winWidth = document.body.clientWidth;
+		// 获取窗口高度
+		if (window.innerHeight)
+			winHeight = window.innerHeight;
+		else if ((document.body) && (document.body.clientHeight))
+			winHeight = document.body.clientHeight;
+		// 通过深入 Document 内部对 body 进行检测，获取窗口大小
+		if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth)
+		{
+			winHeight = document.documentElement.clientHeight;
+			winWidth = document.documentElement.clientWidth;
+		}
+
+		ENV['width'] = winWidth;
+		ENV['height'] = winHeight - 30;
+
+
+	</script>
+	<!-- </x-compile> -->
+</head>
+
+<body>
+
+	<a href="http://172.16.30.2:8000" target="_blank" alt="Powered by Jack"
+	   id="poweredby"><div></div></a>
+
+</body>
+</html>

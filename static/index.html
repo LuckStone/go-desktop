@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ETCD Browser Login</title>
+
+<link rel="stylesheet" type="text/css" href="resources/css/ext-all.css" />
+<!-- GC -->
+
+<script type="text/javascript" src="js/cookies.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+<script type="text/javascript" src="ext.js"></script>
+<!-- script type="text/javascript" src="app-all.js"></script -->
+
+
+<!-- LOGIN -->
+<script type="text/javascript">
+	Env={RootURL:''};
+	Ext.Loader.setPath({
+		'MyDesktop': 'app'
+	});
+	Ext.require('MyDesktop.Login');
+
+	Ext.onReady(function() {
+		/*Ext.state.Manager.setProvider(new Ext.state.CookieProvider());*/
+
+		Ext.QuickTips.init();
+		var win = new MyDesktop.Login({});
+		win.show();
+	})
+</script>	
+
+<style media="all" type="text/css">
+body {
+	background-color:#93b0cc;
+}
+#login-win .x-window-mc {
+	background:#fff none;
+	border:1px solid #eee;
+}
+/*
+#login-logo .x-plain-body {
+	background:#f9f9f9 url(css/logo.gif) no-repeat center center;
+}*/
+#login-form .x-plain-body {
+	background:#f9f9f9 none;
+	color:#222;
+	padding:5px 0  0 45px ;
+}
+#login-win .x-window-body {
+	background:#FFFFFF none repeat scroll 0%;
+	border:1px solid #99BBE8;
+}
+.title{
+	font-weight:600; 
+	color:#0066FF; 
+	font-size:12px;
+}
+</style>
+	
+
+
+</head>
+<body scroll="no">
+</body>
+</html>

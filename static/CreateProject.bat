@@ -1,0 +1,1 @@
+sencha create jsb -a desktop.html -p app.jsb3

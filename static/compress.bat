@@ -1,0 +1,1 @@
+java -jar yuicompressor.jar --type js --charset utf-8 all-classes.js -o app-all.js
