@@ -29,6 +29,8 @@ func init() {
 	//注册数据库连接，最大空闲连接：30，最大数据库连接：30
 	orm.RegisterDataBase("default", "mysql", conn, 30, 30)
 	orm.RegisterModel(new(User))
+
+	// 自动建表force：drop table 后再建表， verbose ：打印执行过程
 	orm.RunSyncdb("default", false, true)
 	orm.Debug = true
 
@@ -65,6 +67,20 @@ func UpdateUser(user_id int, user_name string) {
 	user := User{Id: user_id, Name:user_name}
 	num, err6 := o.Update(&user)
 	fmt.Printf("NUM: %d, ERR: %v\n", num, err6)
+}
+
+func QueryUsers(){
+	var users []*User
+	orm.NewOrm().QueryTable("user").Filter("User", 1).RelatedSel().All(&users)
+	for _, v := range users {
+		fmt.Println(v.Id)
+	}
+
+	var user User
+	err := orm.NewOrm().QueryTable("user").Filter("Name", "张三").Limit(1).One(&user)
+	if err == nil {
+		fmt.Println(user)
+	}
 }
 
 
